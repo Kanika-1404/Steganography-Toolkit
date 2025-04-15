@@ -8,9 +8,9 @@ from steg_modules.image_steg import encoder as img_enc, decoder as img_dec
 from steg_modules.audio_steg import encoder as aud_enc, decoder as aud_dec
 from steg_modules.video_steg import encoder as vid_enc, decoder as vid_dec
 
-port = int(os.environ.get("PORT", 5000))  # Use platform PORT or fallback to 5000
+# port = int(os.environ.get("PORT", 5000))  # Use platform PORT or fallback to 5000
 
-app.run(host="0.0.0.0", port=port)
+# app.run(host="0.0.0.0", port=port)
 
 app = Flask(__name__)
 UPLOAD_FOLDER = 'uploads'
