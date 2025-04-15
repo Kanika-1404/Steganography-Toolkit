@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<b>Hide your secrets in plain sight!</b> <br>
+
+This online tool lets you securely embed hidden messages inside images, audio, and video files using steganography. Add optional password protection for extra security.
+Simply upload, encode, download — and decode anytime! <br>
+You can encode your message in Image, audio or Video File. 
+<br><br>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-center">
+  <a href="/encode" class="bg-blue-500 text-white p-6 rounded shadow hover:bg-blue-600 text-xl">🔐 Encode Message</a>
+  <a href="/decode" class="bg-green-500 text-white p-6 rounded shadow hover:bg-green-600 text-xl">🔓 Decode Message</a>
+</div>
+{% endblock %}

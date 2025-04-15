@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block title %}Encode{% endblock %}
+{% block content %}
+<form method="POST" enctype="multipart/form-data" class="bg-white p-6 rounded shadow-md space-y-4">
+  <h2 class="text-xl font-semibold">🔐 Encode Message</h2>
+
+  <label class="block">File Type:</label>
+  <select name="filetype" class="w-full p-2 border rounded">
+    <option value="image">Image</option>
+    <option value="audio">Audio</option>
+    <option value="video">Video</option>
+  </select>
+
+  <label class="block">Upload File:</label>
+  <input type="file" name="file" class="w-full p-2 border rounded" required>
+
+  <label class="block">Message:</label>
+  <textarea name="message" class="w-full p-2 border rounded" required></textarea>
+
+  <label class="block">Password (optional):</label>
+  <input type="password" name="password" class="w-full p-2 border rounded">
+
+  <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Encode</button>
+</form>
+<a href="/" class="text-blue-500 mt-4 inline-block">← Back to Home</a>
+{% endblock %}

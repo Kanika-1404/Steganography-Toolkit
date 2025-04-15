@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Steganography Toolkit{% endblock %}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800 min-h-screen">
+  <div class="max-w-4xl mx-auto p-6">
+    <h1 class="text-4xl font-bold text-center mb-6">🕵️ Steganography Toolkit</h1>
+    {% block content %}{% endblock %}
+  </div>
+</body>
+
+<script>
+    document.querySelector("form").addEventListener("submit", function (e) {
+      const fileType = document.querySelector('select[name="filetype"]').value;
+      const fileInput = document.querySelector('input[type="file"]');
+      const fileName = fileInput.files[0]?.name || "";
+    
+      const allowed = {
+        image: ['png', 'jpg', 'jpeg'],
+        audio: ['wav', 'mp3'],
+        video: ['mp4', 'avi']
+      };
+    
+      const ext = fileName.split('.').pop().toLowerCase();
+      if (!allowed[fileType].includes(ext)) {
+        alert(`Invalid file format for ${fileType}. Allowed: ${allowed[fileType].join(", ")}`);
+        e.preventDefault();
+      }
+    });
+    </script>
+    
+</html>

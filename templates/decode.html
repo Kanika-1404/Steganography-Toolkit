@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block title %}Decode{% endblock %}
+{% block content %}
+<form method="POST" enctype="multipart/form-data" class="bg-white p-6 rounded shadow-md space-y-4">
+  <h2 class="text-xl font-semibold">🔓 Decode Message</h2>
+
+  <label class="block">File Type:</label>
+  <select name="filetype" class="w-full p-2 border rounded">
+    <option value="image">Image</option>
+    <option value="audio">Audio</option>
+    <option value="video">Video</option>
+  </select>
+
+  <label class="block">Upload Stego File:</label>
+  <input type="file" name="file" class="w-full p-2 border rounded" required>
+
+  <label class="block">Password (if used):</label>
+  <input type="password" name="password" class="w-full p-2 border rounded">
+
+  <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Decode</button>
+</form>
+<a href="/" class="text-blue-500 mt-4 inline-block">← Back to Home</a>
+{% endblock %}

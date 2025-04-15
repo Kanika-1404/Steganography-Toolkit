@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block title %}Result{% endblock %}
+{% block content %}
+<div class="bg-white p-6 rounded shadow-md">
+  <h2 class="text-xl font-semibold mb-4">📥 Decoded Message:</h2>
+  <p class="whitespace-pre-wrap p-4 bg-gray-100 rounded border border-gray-300">{{ message }}</p>
+</div>
+<a href="/" class="text-blue-500 mt-4 inline-block">← Back to Home</a>
+{% endblock %}
