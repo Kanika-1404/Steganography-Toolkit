@@ -1,24 +1,26 @@
-# Use official Python image
-FROM python:3.11-slim
+# Use a slim python image as base
+FROM python:3.10-slim
 
-# System dependencies
-RUN apt-get update && \
-    apt-get install -y ffmpeg && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+# Install build dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libevdev-dev \
+    libffi-dev \
+    python3-dev \
+    && rm -rf /var/lib/apt/lists/*
 
-# Set working directory
+# Set work directory
 WORKDIR /app
 
-# Copy requirements and install
+# Copy requirements and install dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of your code
+# Copy the rest of your application code
 COPY . .
 
-# Expose port (adjust if not using 5000)
+# Expose port 5000 for the Flask app
 EXPOSE 5000
 
-# Set entrypoint (assuming Flask app)
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
+# Set the default command to run your app (replace 'app.py' with your main app file)
+CMD ["python", "app.py"]
