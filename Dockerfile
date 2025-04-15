@@ -1,26 +1,27 @@
-# Use a slim python image as base
 FROM python:3.10-slim
 
-# Install build dependencies
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
     build-essential \
     libevdev-dev \
     libffi-dev \
     python3-dev \
+    libgl1 \
+    libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
-# Set work directory
+# Set working directory
 WORKDIR /app
 
-# Copy requirements and install dependencies
+# Copy requirements and install Python dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of your application code
+# Copy the rest of your code
 COPY . .
 
-# Expose port 5000 for the Flask app
+# Expose Flask default port
 EXPOSE 5000
 
-# Set the default command to run your app (replace 'app.py' with your main app file)
+# Run the app (modify if needed)
 CMD ["python", "app.py"]
