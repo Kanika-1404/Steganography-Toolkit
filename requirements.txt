@@ -103,9 +103,6 @@ python-dateutil==2.9.0.post0
 python-dotenv==1.0.1
 pytube==15.0.0
 pytz==2024.1
-pyunormalize==16.0.0
-pywin32==308
-pywin32-ctypes==0.2.3
 PyYAML==6.0.2
 regex==2024.11.6
 requests==2.31.0
